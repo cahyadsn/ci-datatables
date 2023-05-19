@@ -12,7 +12,7 @@ found at http://datatables.net/examples/data_sources/server_side.html for CodeIg
 ## Requirements
 jQuery 1.5+   
 DataTables 1.10+   
-CodeIgniter
+CodeIgniter 3.*
 
 ## Installation
 To install the library, copy the libraries/datatables.php file into your application/libraries folder.
