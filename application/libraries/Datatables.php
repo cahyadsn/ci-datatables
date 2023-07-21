@@ -38,6 +38,19 @@ class Datatables
         $this->ci =& get_instance();
     }
 
+    /** 
+    * Set a specific database event the default, if vopid reconnect the default 
+    *
+    * @param string $databasename
+    * @return void
+    */
+	public function setdb($databasename = NULL)
+	{
+		if($databasename == NULL) $databasename = 'default';
+		$this->ci->load->database($databasename);
+	}
+
+    
     /**
     * Generates the SELECT portion of the query
     *

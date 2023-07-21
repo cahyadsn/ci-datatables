@@ -19,6 +19,11 @@ To install the library, copy the libraries/datatables.php file into your applica
 
 
 ## Function Reference
+
+### $this->setdb($database = 'default')
+Sets the name of the database configuration, if need another apart of default, 
+The name of the database its optional.
+
 Note: you can use method chaining for more compact syntax. 
 ### $this->datatables->select($columns);
 Sets which columns to fetch from the specified table.  
