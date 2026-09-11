@@ -140,20 +140,22 @@ class Profiles extends BaseController
 
 ## 💻 Sample Application
 
-A full, ready-to-run CodeIgniter 4 sample application is provided in the [`apps/`](apps/) directory. It includes:
-- Embedded SQLite database with auto-seeding (50 realistic employee records across 5 departments).
-- Multi-column search, table joins (`employees` + `departments`), sorting, and pagination.
-- Dynamic column formatting with `editColumn` and `addColumn`.
-- Department and status live filters.
+A full, production-ready CodeIgniter 4 sample application is provided in the [`apps/`](apps/) directory.
 
-To run the sample application immediately:
+### Key Highlights:
+- **Zero Configuration**: Ships with an embedded SQLite database (`apps/writable/database/sample.db`) that auto-migrates and seeds 50 realistic employee records across 5 departments upon first launch.
+- **MySQL Support**: Also includes [`apps/sample.sql`](apps/sample.sql) and `.env` template for MySQL users.
+- **Relational JOINs**: Demonstrates `employees` joined with `departments`.
+- **Dynamic Transformations**: Custom column creation (`addColumn`) for action buttons and column formatting (`editColumn`) for currency and badges.
+- **Runtime Filtering**: Dropdown filters for Department and Status alongside DataTables multi-column search.
+- **Modern UI**: Styled with Bootstrap 5.3, Bootstrap Icons, and DataTables 2.x.
 
+### Quick Start:
 ```bash
 cd apps
 php spark serve
 ```
-
-Then visit **`http://localhost:8080`** in your browser. For more details, see [apps/README.md](apps/README.md).
+Visit **`http://localhost:8080`** in your browser. For detailed configuration and usage, see [apps/README.md](apps/README.md).
 
 ---
 
@@ -170,6 +172,14 @@ vendor/bin/phpunit
 
 ## Changelog
 
+### [v2.2.0] - 2026-09-11
+#### Added Sample Application
+- **Complete Sample App (`apps/`)**: Added a self-contained CodeIgniter 4 demonstration application showcasing server-side processing with DataTables 2.x.
+- **Auto-Migration & Seeding**: Added migration (`CreateEmployeesTable`) and seeder (`EmployeeSeeder`) with automatic first-run execution for zero-setup SQLite testing.
+- **Relational Queries & Transformations**: Demonstrated `select()`, `join()`, `where()`, `editColumn()` (currency & badges), and `addColumn()` (action buttons).
+- **Client-Side Integration Bridge**: Included JavaScript adapters for mapping DataTables 2.x modern requests/responses with `ci-datatables`.
+- **MySQL Ready**: Included schema & data dump (`apps/sample.sql`) and `.env` template for MySQL/Laragon environments.
+
 ### [v2.1.0] - 2026-07-20
 #### Added Unit Tests
 - **PHPUnit Integration**: Added PHPUnit configuration file (`phpunit.xml.dist`) and test suite file (`tests/DatatablesTest.php`).
@@ -183,5 +193,6 @@ vendor/bin/phpunit
 - **Autoloading & PSR-4**: Configured namespaces and directory mapping to support PSR-4 auto-loading via composer namespace `Cahyadsn\Datatables\`.
 - **Composer Package Support**: Added `composer.json` metadata to allow installation via `composer require`.
 - **Fixed bugs in column unsetting**: Fixed target array index unsetting behavior to accurately map numeric indexes and custom column property labels when removing columns from final responses.
+
 
 
