@@ -136,6 +136,27 @@ class Profiles extends BaseController
 }
 ```
 
+---
+
+## 💻 Sample Application
+
+A full, ready-to-run CodeIgniter 4 sample application is provided in the [`apps/`](apps/) directory. It includes:
+- Embedded SQLite database with auto-seeding (50 realistic employee records across 5 departments).
+- Multi-column search, table joins (`employees` + `departments`), sorting, and pagination.
+- Dynamic column formatting with `editColumn` and `addColumn`.
+- Department and status live filters.
+
+To run the sample application immediately:
+
+```bash
+cd apps
+php spark serve
+```
+
+Then visit **`http://localhost:8080`** in your browser. For more details, see [apps/README.md](apps/README.md).
+
+---
+
 ## Running Tests
 
 To run the unit tests, install development dependencies using Composer and run PHPUnit:

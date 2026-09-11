@@ -1,0 +1,32 @@
+#!/usr/bin/env php
+<?php
+
+use CodeIgniter\Boot;
+use Config\Paths;
+
+if (str_starts_with(PHP_SAPI, 'cgi')) {
+    exit("The cli tool is not supported when running php-cgi. It needs php-cli to function!\n\n");
+}
+
+$minPhpVersion = '8.2';
+if (version_compare(PHP_VERSION, $minPhpVersion, '<')) {
+    $message = sprintf(
+        'Your PHP version must be %s or higher to run CodeIgniter. Current version: %s',
+        $minPhpVersion,
+        PHP_VERSION,
+    );
+    exit($message);
+}
+
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+
+define('FCPATH', __DIR__ . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR);
+chdir(FCPATH);
+
+require FCPATH . '../app/Config/Paths.php';
+
+$paths = new Paths();
+require $paths->systemDirectory . '/Boot.php';
+
+exit(Boot::bootSpark($paths));

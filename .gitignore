@@ -4,3 +4,14 @@ GEMINI.md
 # Vendor / Composer
 /vendor/
 composer.lock
+
+# Test artifacts
+.phpunit.result.cache
+
+# Sample app writable artifacts
+/apps/writable/*
+!/apps/writable/cache/.gitkeep
+!/apps/writable/database/.gitkeep
+!/apps/writable/logs/.gitkeep
+!/apps/writable/session/.gitkeep
+
